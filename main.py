@@ -254,7 +254,7 @@ sticker_rewards = {
         "image": "stickers/helper.png",
         "caption": "🌱 Species Supporter!\nYou care about our survival!",
         "semantic_keywords": ["help", "support", "thrive", "survive", "conservation", "protect", "save"]
-    }
+    },
     "Do you have any other species friends?": {
         "image": "stickers/friends.png",
         "caption": "🐬 Inter-species Buddy!\nYou’re curious about my wild friendships!",
