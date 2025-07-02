@@ -7,7 +7,6 @@ import pygame
 import re
 import base64
 import subprocess
-import speech_recognition as sr
 import streamlit as st
 import uuid
 import time
@@ -120,22 +119,6 @@ def check_gift():
         st.session_state.gift_given = True
         return True
     return False
-
-def recognize_speech():
-    recognizer = sr.Recognizer()
-    with sr.Microphone() as source:
-        print("Listening...")
-        audio = recognizer.listen(source)
-        try:
-            text = recognizer.recognize_google(audio)
-            print(f"Recognized: {text}")
-            return text
-        except sr.UnknownValueError:
-            print("Sorry, I did not understand that.")
-            return None
-        except sr.RequestError:
-            print("Sorry, there was an error with the speech recognition service.")
-            return None
 
 def play_audio_file(file_path):
     os.system(f"afplay {file_path}")
