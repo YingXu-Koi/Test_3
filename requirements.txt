@@ -9,9 +9,8 @@ tiktoken
 SpeechRecognition==3.10.0
 pysqlite3-binary
 python-dotenv
+gTTS
+pydub
+ffmpeg
 SpeechRecognition
 pocketsphinx
-pygame
-gTTS==2.3.2
-pydub==0.25.1
-ffmpeg-python==0.2.0
