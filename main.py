@@ -3,7 +3,6 @@ import os
 import pysqlite3
 sys.modules["sqlite3"] = pysqlite3
 from gtts import gTTS
-from pydub import AudioSegment
 import pygame
 import re
 import base64
