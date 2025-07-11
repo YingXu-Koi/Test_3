@@ -556,7 +556,7 @@ def main():
                         key="user_input_widget"
                     )
                 with col2:
-                    submit_button = st.form_submit_button(label="Ask Zinita")
+                    submit_button = st.form_submit_button(label="Ask Rosa")
                 with col3:
                     tips_button = st.form_submit_button("Tips", use_container_width=True)
 
