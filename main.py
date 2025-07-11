@@ -351,7 +351,7 @@ def main():
             margin: 20px 20px 20px auto;
             box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
             max-width: 80%;
-            border: 2px solid #a1b065;
+            border: 2px solid #45a1aa;
             font-style: italic;
             color: #31333e;
             text-align: left;
@@ -504,7 +504,7 @@ def main():
         }
         .loading-spinner {
             border: 3px solid #f3f3f3;
-            border-top: 3px solid #a1b065;
+            border-top: 3px solid #45a1aa;
             border-radius: 50%;
             width: 20px;
             height: 20px;
@@ -684,13 +684,13 @@ def main():
             st.markdown("""
             <div style="
                 background-color: #fff;
-                border: 2px solid #a1b065;
+                border: 2px solid #45a1aa;
                 padding: 15px;
                 border-radius: 10px;
                 margin-top: 2px;
             ">
                 <h6 style="margin-top: 0;">💡 Tips: How the "Friendship Score!" Works</h4>
-                <p style="margin-top: 0px;">Your Friendship Score</strong> grows based on how you talk to your critter friend. 🐦💚</p>
+                <p style="margin-top: 0px;">Your Friendship Score</strong> grows based on how you talk to your critter friend.🦭💙</p>
                 <ul>
                     <li>Ask about its habitat or life</li>
                     <li>Show care or kindness</li>
