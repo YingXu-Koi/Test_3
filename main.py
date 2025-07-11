@@ -534,7 +534,7 @@ def main():
     with left_col:
         with st.container():
             st.markdown("""
-                <div style="font-size:50px; font-weight:bold; color:#31333e; margin-bottom:0px; line-height: 1.0;">
+                <div style="font-size:50px; font-weight:bold; color:#31333e; margin-bottom:15px; line-height: 1.0;">
                     Hi friend! I'm Rosa the Monk Seal.
                 </div>
             """, unsafe_allow_html=True)
@@ -546,7 +546,7 @@ def main():
             """, unsafe_allow_html=True)
             
             with st.form(key='message_form'):
-                col1, col2, col3 = st.columns([5, 1, 1])
+                col1, col2, col3 = st.columns([5, 1, 0.6])
                 with col1:
                     user_input = st.text_input(
                         label="Your question", 
