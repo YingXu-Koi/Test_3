@@ -590,7 +590,7 @@ def main():
                     <img src="data:image/png;base64,{img_base64}" style="width: 100%; max-width: 200px;">
                 </div>
                 <div style="flex: 1;">
-                    <h1 style="margin-top: 0; font-size: 3rem; padding: 0;">Hi! I'm Maria the Zino's Petrel.</h1>
+                    <h1 style="margin-top: 0; font-size: 3rem; padding: 0;">Hi! I'm Rosa the Monk Seal.</h1>
                     <h3 style="margin-top: 0.5rem; font-weight: bold; padding: 0; font-size: 1.25rem;">What would you like to ask me?</h3>
                 </div>
             </div>
