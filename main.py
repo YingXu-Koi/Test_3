@@ -459,7 +459,7 @@ def main():
         /* Remove red border outline from chat input when active */
         .stChatInput div[data-testid="stChatInput"] > div:focus-within {
             box-shadow: none !important;
-            border-color: #a1b065 !important;
+            border-color: #45a1aa !important;
             border-width: 1px !important;
         }
         
@@ -472,7 +472,7 @@ def main():
         
         /* Change chat input focus state */
         .stChatInput div[data-testid="stChatInput"]:focus-within {
-            border-color: #a1b065 !important;
+            border-color: #45a1aa !important;
             box-shadow: 0 0 0 1px rgba(161, 176, 101, 0.5) !important;
         }
         
@@ -485,16 +485,16 @@ def main():
         [data-testid="stChatInput"] input:focus {
             box-shadow: none !important;
             outline: none !important;
-            border-color: #a1b065 !important;
+            border-color: #45a1aa !important;
         }
         
         [data-testid="stChatInput"] textarea:focus {
             box-shadow: none !important;
             outline: none !important;
-            border-color: #a1b065 !important;
+            border-color: #45a1aa !important;
         }
         button[kind="primary"] {
-            background-color: #2b4e38;
+            background-color: #0097b2;
             border: 0;
         }
         button[kind="primary"]:hover {
@@ -506,7 +506,7 @@ def main():
         }
         .sticker-reward {
             background-color: transparent;
-            border: 2px solid #a1b065;
+            border: 2px solid #45a1aa;
             border-radius: 10px;
             padding: 10px;
             text-align: center;
@@ -562,7 +562,7 @@ def main():
         }
         .loading-spinner {
             border: 3px solid #f3f3f3;
-            border-top: 3px solid #a1b065;
+            border-top: 3px solid #45a1aa;
             border-radius: 50%;
             width: 20px;
             height: 20px;
@@ -607,7 +607,7 @@ def main():
                 st.markdown("""
                     <div style="
                         background-color: #fff;
-                        border: 2px solid #a1b065;
+                        border: 2px solid #0097b2;
                         padding: 15px;
                         border-radius: 10px;
                         margin-bottom: 15px;
