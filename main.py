@@ -582,7 +582,7 @@ def main():
     left_col, right_col = st.columns([0.75, 0.25], vertical_alignment="top", gap="large")
     
     with left_col:
-        with open("zino.png", "rb") as img_file:
+        with open("seal.png", "rb") as img_file:
             img_base64 = base64.b64encode(img_file.read()).decode("utf-8")
 
         st.markdown(f"""
