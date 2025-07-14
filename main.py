@@ -612,7 +612,7 @@ def main():
                         border-radius: 10px;
                         margin-bottom: 15px;
                     ">
-                        <p style="margin-top: 0px;">Your Friendship Score</strong> grows based on how you talk to your critter friend. 🐦💚</p>
+                        <p style="margin-top: 0px;">Your Friendship Score</strong> grows based on how you talk to your critter friend. 🦭💙</p>
                         <ul>
                             <li>Ask about its habitat or life</li>
                             <li>Show care or kindness</li>
