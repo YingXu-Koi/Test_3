@@ -432,7 +432,7 @@ def main():
         }
 
         [class*="st-key-assistant"] {
-            background-color: #345e42;
+            background-color: #0097b2;
             border-radius: 16px 16px 16px 0;
             padding-right: 16px;
             border-color: white !important;
@@ -465,7 +465,7 @@ def main():
         
         /* Additional chat input styling */
         .stChatInput > div {
-            border-color: #345e42 !important;
+            border-color: #0097b2 !important;
             background-color: rgba(255, 255, 255, 0.8) !important;
             border-radius: 20px !important;
         }
@@ -498,7 +498,7 @@ def main():
             border: 0;
         }
         button[kind="primary"]:hover {
-            background-color: #345e42;
+            background-color: #0097b2;
             border: 0;
         }
         button[kind="secondary"] {
