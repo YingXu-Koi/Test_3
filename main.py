@@ -241,8 +241,8 @@ role_configs = {
         "rate": "160",
         "pitch": "60",
         'intro_audio': 'intro5.mp3',
-        'persist_directory': 'db5',
-        'gif_cover': 'zino.png'
+        'persist_directory': 'db6',
+        'gif_cover': 'seal.png'
     }
 }
 
