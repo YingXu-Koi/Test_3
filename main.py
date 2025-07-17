@@ -20,6 +20,7 @@ from langchain_community.document_loaders import PyPDFLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 import streamlit.components.v1 as components
 from st_supabase_connection import SupabaseConnection
+import hashlib
 
 conn = st.connection("supabase",type=SupabaseConnection)
 
@@ -684,8 +685,16 @@ def main():
                         <p style="margin-top: 10px;">💬 The more positive you are, the higher your score! 🌱✨ But watch out — unkind words or harmful ideas can lower your score. 🚫</p>
                     </div>
                     """, unsafe_allow_html=True)
-            if st.button("Tips", icon=":material/lightbulb:", help="Click to see tips on how to get a higher Friendship Score!", use_container_width=True, type="primary"):
+            def toggle_score_guide():
+                st.session_state.show_score_guide = True
+            
+            if st.button("Tips", icon=":material/lightbulb:", help="Click to see tips on how to get a higher Friendship Score!", use_container_width=True, type="primary", on_click=toggle_score_guide):
+                pass
+            # Show tips if the state is true
+            if st.session_state.show_score_guide:
                 score_guide()
+                # Reset the flag after displaying
+                st.session_state.show_score_guide = False
         with input_section_col3:
             if st.button("Start new conversation", icon=":material/chat_add_on:", help="Click to clear the chat history and start fresh!", use_container_width=True):
                 st.session_state.chat_history = []
@@ -705,6 +714,7 @@ def main():
                 st.session_state.newly_awarded_sticker = False
                 st.session_state.gift_shown = False
                 del st.session_state["session_id"]
+                del st.session_state["logged_interactions"]
                 st.rerun()
         chatSection = st.container(height=520, key="chat_section", border=False)
         with chatSection:
@@ -715,7 +725,7 @@ def main():
                     st.markdown(message["content"])
         
 
-        if user_input:
+        if user_input and user_input != st.session_state.last_question:
             try:
                 # Set processing state first
                 st.session_state.processing = True
@@ -914,15 +924,25 @@ def main():
             else:
                 st.info("Ask me a question to see the fact-check results based on scientific knowledge!")
     cleanup_audio_files()
+    
     # Log the interaction to Supabase
     if st.session_state.last_question:
-        log_interaction(
-            user_input=st.session_state.last_question,
-            ai_response=st.session_state.last_answer,
-            intimacy_score=st.session_state.intimacy_score,
-            is_sticker_awarded=st.session_state.newly_awarded_sticker,
-            gift_given=st.session_state.gift_given
-        )
+        # Check if this specific interaction has already been logged
+        if "logged_interactions" not in st.session_state:
+            st.session_state.logged_interactions = set()
+        
+        combined = f"{st.session_state.last_question}|{st.session_state.last_answer}"
+
+        interaction_key = hashlib.md5(combined.encode()).hexdigest()
+        if interaction_key not in st.session_state.logged_interactions:
+            log_interaction(
+                user_input=st.session_state.last_question,
+                ai_response=st.session_state.last_answer,
+                intimacy_score=st.session_state.intimacy_score,
+                is_sticker_awarded=st.session_state.newly_awarded_sticker,
+                gift_given=st.session_state.gift_given
+            )
+            st.session_state.logged_interactions.add(interaction_key)
 
 if __name__ == "__main__":
     main()
