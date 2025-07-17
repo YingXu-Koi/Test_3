@@ -515,6 +515,7 @@ def main():
         .st-key-chat_section{
             display: flex;
             flex-direction: column-reverse;
+            justify-content: flex-end;
         }
         /* Remove red border outline from chat input when active */
         .stChatInput div[data-testid="stChatInput"] > div:focus-within {
@@ -705,7 +706,7 @@ def main():
                 st.session_state.gift_shown = False
                 del st.session_state["session_id"]
                 st.rerun()
-        chatSection = st.container(height=520, key="chat_section", border=False)
+        chatSection = st.container(height=520, key="chat_section", border=True)
         with chatSection:
             if "chat_history" not in st.session_state:
                 st.session_state.chat_history = []
