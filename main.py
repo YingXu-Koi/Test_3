@@ -706,7 +706,7 @@ def main():
                 st.session_state.gift_shown = False
                 del st.session_state["session_id"]
                 st.rerun()
-        chatSection = st.container(height=520, key="chat_section", border=True)
+        chatSection = st.container(height=520, key="chat_section", border=False)
         with chatSection:
             if "chat_history" not in st.session_state:
                 st.session_state.chat_history = []
