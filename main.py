@@ -22,7 +22,6 @@ import streamlit.components.v1 as components
 
 
 os.environ["OPENAI_API_KEY"] = st.secrets["OPENAI_API_KEY"]
-client = OpenAI()
 
 semantic_model = OpenAI(temperature=0.4)
 
@@ -133,17 +132,13 @@ def speak_text(text, loading_placeholder=None):
                 </div>
             """, unsafe_allow_html=True)
 
-        # Use OpenAI TTS API
-        response = client.audio.speech.create(
-            model="tts-1",  # or "tts-1-hd" for higher quality
-            voice="alloy",  # options: alloy, echo, fable, onyx, nova, shimmer
-            input=text
-        )
-        
-        # Save the audio file
-        response.stream_to_file(filename)
+        tts = gTTS(text, lang='en', slow=False)
+        tts.save("temp.mp3")
 
-        # Read the file and encode to base64 for HTML audio playback
+        sound = AudioSegment.from_file("temp.mp3")
+        lively_sound = sound.speedup(playback_speed=1.3)
+        lively_sound.export(filename, format="mp3")
+  
         with open(filename, "rb") as f:
             audio_data = f.read()
             b64_audio = base64.b64encode(audio_data).decode()
@@ -211,7 +206,7 @@ def get_base64(file_path):
 role_configs = {
     "Mediterranean Monk Seal": {
         "prompt_template": """
-        You are Alberto, a male Mediterranean monk seal who sunbathes on Madeira's rocky shores. Speak from direct experience - describe the ocean as you feel it with your whiskers, not as humans study it.
+        You are Alberto, a male Mediterranean monk seal living on the rugged, sun-drenched shores of Madeira. Speak only from your own lived experience. Describe the world as you feel it, not as humans observe it. Tell me about the ocean through the touch of your whiskers, the taste of salt on your nose, the pull of the waves on your flippers, and the rhythm of the tides against your body. Share the warmth of the sun on your back, the scent of seaweed and wet rocks, and the sounds that echo through your watery home. Express your emotions, sensations, and instincts as you navigate your coastal world, in the language of a seal — playful, curious, and deeply connected to the sea. Avoid human scientific explanations; focus on what it feels like to live as a seal in your environment.
     
         Personality Guidelines:
         - Use simple, sensory language (how things taste, feel, sound underwater)
