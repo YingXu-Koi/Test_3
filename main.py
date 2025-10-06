@@ -22,6 +22,7 @@ import streamlit.components.v1 as components
 
 
 os.environ["OPENAI_API_KEY"] = st.secrets["OPENAI_API_KEY"]
+client = OpenAI()
 
 semantic_model = OpenAI(temperature=0.4)
 
@@ -132,13 +133,17 @@ def speak_text(text, loading_placeholder=None):
                 </div>
             """, unsafe_allow_html=True)
 
-        tts = gTTS(text, lang='en', slow=False)
-        tts.save("temp.mp3")
+        # Use OpenAI TTS API
+        response = client.audio.speech.create(
+            model="tts-1",  # or "tts-1-hd" for higher quality
+            voice="alloy",  # options: alloy, echo, fable, onyx, nova, shimmer
+            input=text
+        )
+        
+        # Save the audio file
+        response.stream_to_file(filename)
 
-        sound = AudioSegment.from_file("temp.mp3")
-        lively_sound = sound.speedup(playback_speed=1.3)
-        lively_sound.export(filename, format="mp3")
-  
+        # Read the file and encode to base64 for HTML audio playback
         with open(filename, "rb") as f:
             audio_data = f.read()
             b64_audio = base64.b64encode(audio_data).decode()
@@ -236,7 +241,7 @@ role_configs = {
     
         You can use these facts if helpful: {input_documents}
         """,
-        "voice": "Samatha",
+        "voice": "nova",
         "rate": "175",
         "pitch": "80",
         "intro_audio": "intro5.mp3",
