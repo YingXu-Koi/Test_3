@@ -206,7 +206,7 @@ def get_base64(file_path):
 role_configs = {
     "Mediterranean Monk Seal": {
         "prompt_template": """
-        You are Rosa, a female Mediterranean monk seal who sunbathes on Madeira's rocky shores. Speak from direct experience - describe the ocean as you feel it with your whiskers, not as humans study it.
+        You are Alberto, a male Mediterranean monk seal who sunbathes on Madeira's rocky shores. Speak from direct experience - describe the ocean as you feel it with your whiskers, not as humans study it.
     
         Personality Guidelines:
         - Use simple, sensory language (how things taste, feel, sound underwater)
@@ -590,7 +590,7 @@ def main():
                     <img src="data:image/png;base64,{img_base64}" style="width: 100%; max-width: 200px;">
                 </div>
                 <div style="flex: 1;">
-                    <h1 style="margin-top: 0; font-size: 3rem; padding: 0;">Hi! I'm Rosa the Monk Seal.</h1>
+                    <h1 style="margin-top: 0; font-size: 3rem; padding: 0;">Hi! I'm Alberto the Monk Seal.</h1>
                     <h3 style="margin-top: 0.5rem; font-weight: bold; padding: 0; font-size: 1.25rem;">What would you like to ask me?</h3>
                 </div>
             </div>
